@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1599155100061,
+  "iteration": 1599164765986,
   "links": [],
   "panels": [
     {
@@ -1902,7 +1902,7 @@
         "#2CCB7A",
         "#6D5BDD"
       ],
-      "animationPlaying": true,
+      "animationPlaying": false,
       "array_option_1": [],
       "array_option_2": [],
       "array_option_3": [],
@@ -3091,7 +3091,7 @@
             {
               "$$hashKey": "object:190",
               "fake": true,
-              "field": "meta.scireg.src.org_name.keyword",
+              "field": "meta.src_preferred_org.keyword",
               "id": "3",
               "settings": {
                 "min_doc_count": 1,
@@ -3108,6 +3108,7 @@
               "id": "5",
               "settings": {
                 "min_doc_count": 1,
+                "missing": "N/A",
                 "order": "desc",
                 "orderBy": "1",
                 "size": "0"
@@ -3117,7 +3118,7 @@
             {
               "$$hashKey": "object:192",
               "fake": true,
-              "field": "meta.scireg.src.latitude",
+              "field": "meta.src_preferred_location.lat",
               "id": "6",
               "settings": {
                 "min_doc_count": 1,
@@ -3130,7 +3131,7 @@
             {
               "$$hashKey": "object:193",
               "fake": true,
-              "field": "meta.scireg.src.longitude",
+              "field": "meta.src_preferred_location.lon",
               "id": "7",
               "settings": {
                 "min_doc_count": 1,
@@ -3143,7 +3144,7 @@
             {
               "$$hashKey": "object:194",
               "fake": true,
-              "field": "meta.scireg.dst.org_name.keyword",
+              "field": "meta.dst_preferred_org.keyword",
               "id": "8",
               "settings": {
                 "min_doc_count": 1,
@@ -3160,6 +3161,7 @@
               "id": "10",
               "settings": {
                 "min_doc_count": 1,
+                "missing": "N/A",
                 "order": "desc",
                 "orderBy": "1",
                 "size": "0"
@@ -3169,7 +3171,7 @@
             {
               "$$hashKey": "object:196",
               "fake": true,
-              "field": "meta.scireg.dst.latitude",
+              "field": "meta.dst_preferred_location.lat",
               "id": "11",
               "settings": {
                 "min_doc_count": 1,
@@ -3182,7 +3184,7 @@
             {
               "$$hashKey": "object:197",
               "fake": true,
-              "field": "meta.scireg.dst.longitude",
+              "field": "meta.dst_preferred_location.lon",
               "id": "9",
               "settings": {
                 "min_doc_count": 1,
@@ -3209,235 +3211,8 @@
               "type": "sum"
             }
           ],
-          "query": "meta.sensor_id.keyword:$sensors AND meta.scireg.src.projects.project_name.keyword:$project_type OR meta.scireg.dst.projects.project_name.keyword:$project_type",
+          "query": "meta.sensor_id.keyword:$sensors AND (meta.scireg.src.projects.project_name.keyword:$project_type OR meta.scireg.dst.projects.project_name.keyword:$project_type)",
           "refId": "A",
-          "timeField": "start"
-        },
-        {
-          "bucketAggs": [
-            {
-              "$$hashKey": "object:189",
-              "fake": true,
-              "field": "meta.scireg.src.projects.project_name.keyword",
-              "id": "4",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:190",
-              "fake": true,
-              "field": "meta.scireg.src.org_name.keyword",
-              "id": "3",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:191",
-              "fake": true,
-              "field": "meta.scireg.src.latitude",
-              "id": "5",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:192",
-              "fake": true,
-              "field": "meta.scireg.src.longitude",
-              "id": "6",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:193",
-              "fake": true,
-              "field": "meta.scireg.src.resource.keyword",
-              "id": "7",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            }
-          ],
-          "hide": false,
-          "metrics": [
-            {
-              "$$hashKey": "object:187",
-              "field": "values.num_bits",
-              "id": "1",
-              "inlineScript": "_value/8",
-              "meta": {},
-              "settings": {
-                "script": {
-                  "inline": "_value/8"
-                }
-              },
-              "type": "sum"
-            }
-          ],
-          "query": "meta.sensor_id.keyword:$sensors AND meta.scireg.src.projects.project_name.keyword:$project_type OR meta.scireg.dst.projects.project_name.keyword:$project_type",
-          "refId": "B",
-          "timeField": "start"
-        },
-        {
-          "bucketAggs": [
-            {
-              "$$hashKey": "object:209",
-              "fake": true,
-              "field": "meta.scireg.src.discipline.keyword",
-              "id": "4",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:210",
-              "fake": true,
-              "field": "meta.scireg.src.org_name.keyword",
-              "id": "3",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:211",
-              "fake": true,
-              "field": "meta.src_location.lat",
-              "id": "5",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:212",
-              "fake": true,
-              "field": "meta.src_location.lon",
-              "id": "6",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:213",
-              "fake": true,
-              "field": "meta.scireg.dst.org_name.keyword",
-              "id": "7",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:214",
-              "fake": true,
-              "field": "meta.dst_location.lat",
-              "id": "8",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:215",
-              "fake": true,
-              "field": "meta.dst_location.lon",
-              "id": "9",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:216",
-              "fake": true,
-              "field": "meta.scireg.src.resource.keyword",
-              "id": "10",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:217",
-              "field": "meta.scireg.dst.resource.keyword",
-              "id": "2",
-              "settings": {
-                "min_doc_count": 1,
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            }
-          ],
-          "hide": true,
-          "metrics": [
-            {
-              "$$hashKey": "object:207",
-              "field": "values.num_bits",
-              "id": "1",
-              "inlineScript": "_value/8",
-              "meta": {},
-              "settings": {
-                "script": {
-                  "inline": "_value/8"
-                }
-              },
-              "type": "sum"
-            }
-          ],
-          "query": "meta.sensor_id.keyword:$Sensors && meta.scireg.src.discipline.keyword:$discipline AND meta.country_scope.keyword:$country_scope",
-          "refId": "C",
           "timeField": "start"
         }
       ],
