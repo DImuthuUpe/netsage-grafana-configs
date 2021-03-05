@@ -25,7 +25,7 @@ cd /app/plugins
 
 #Install carpetplot //using forked version until PR is accepted
 #grafana-cli plugins install marcusolsson-hourly-heatmap-panel
-grafana-cli --pluginUrl "https://github.com/netsage-project/grafana-hourly-heatmap-panel/archive/nullValueColor.zip" plugins install marcusolsson-hourly-heatmap-panel
+grafana-cli --pluginUrl "https://github.com/katrinaturner/grafana-hourly-heatmap-panel/archive/nullColorPicker.zip" plugins install marcusolsson-hourly-heatmap-panel
 
 # Install polystat
 grafana-cli plugins install grafana-polystat-panel
